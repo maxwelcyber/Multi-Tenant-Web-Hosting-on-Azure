@@ -1,6 +1,6 @@
 # Multi-Tenant Web Hosting with Isolated Client Environments
 
-**Built by Maxwell — GizmoFix Repair Services, Lagos, Nigeria**
+**Built by Maxwell — Lagos, Nigeria**
 
 A production-ready demonstration of hosting multiple clients on a single Azure VM with full file-level isolation using Linux permissions and Nginx.
 
