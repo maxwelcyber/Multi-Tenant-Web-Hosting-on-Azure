@@ -7,9 +7,9 @@ A hands-on demonstration of hosting two clients (Emeka & Ebuka) on a single Azur
 ---
 
 ## Architecture Overview
-*┌──────────────────────────────────────────────────┐
-*│ Azure Ubuntu VM │
-*│ │
+┌──────────────────────────────────────────────────┐
+│ Azure Ubuntu VM │
+* │ │
 │ ┌──────────────┐ ┌──────────────┐ │
 │ │ Emeka (User) │ │ Ebuka (User) │ │
 │ │ airtel group │ │ mtn group │ │
