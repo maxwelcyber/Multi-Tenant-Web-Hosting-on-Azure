@@ -1,6 +1,6 @@
 # Multi-Tenant Web Hosting with Isolated Client Environments on Azure
 
-**Built by MaxwelCyber — GizmoFix Repair Services, Lagos, Nigeria**
+**Built by MaxwelCyber — Lagos, Nigeria**
 
 A hands-on demonstration of hosting two clients (Emeka & Ebuka) on a single Azure Ubuntu VM with complete file-level isolation. Neither client can read, write, or execute the other's files — despite sharing the same server, same Nginx instance, and same operating system.
 
