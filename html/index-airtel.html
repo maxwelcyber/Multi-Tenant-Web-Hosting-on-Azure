@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airtel Replica - Express Yourself</title>
+    <style>
+        /* Global Reset & Airtel Theme Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        :root {
+            --airtel-red: #E11900;
+            --airtel-dark: #222222;
+            --airtel-light: #FFFFFF;
+            --airtel-grey: #F5F6F7;
+            --text-main: #333333;
+            --text-muted: #666666;
+        }
+
+        body {
+            background-color: var(--airtel-grey);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Top Mini-Nav (Segment Switcher) */
+        .top-bar {
+            background-color: #f0f0f0;
+            font-size: 12px;
+            padding: 8px 5%;
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-bar a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .top-bar a.active {
+            color: var(--airtel-red);
+            font-weight: bold;
+        }
+
+        /* Primary Navigation */
+        header {
+            background-color: var(--airtel-light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Airtel Logo Style (Lowercase, clean, red text) */
+        .logo {
+            color: var(--airtel-red);
+            font-size: 28px;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            font-weight: 300;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--airtel-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--airtel-red);
+        }
+
+        .btn-quick-recharge {
+            background-color: var(--airtel-red);
+            color: white;
+            padding: 10px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-quick-recharge:hover {
+            background-color: #b81400;
+        }
+
+        /* Hero Banner Section */
+        .hero {
+            background: linear-gradient(135deg, #FF4B2B 0%, #FF416C 100%);
+            color: var(--airtel-light);
+            padding: 60px 5%;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero-text h1 {
+            font-size: 38px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-white {
+            background-color: var(--airtel-light);
+            color: var(--airtel-red);
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--airtel-light);
+            color: var(--airtel-light);
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Airtel Custom Floating Quick Action Panel */
+        .recharge-panel {
+            background: var(--airtel-light);
+            max-width: 1200px;
+            margin: -30px auto 40px auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            z-index: 10;
+            position: relative;
+        }
+
+        .panel-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--airtel-dark);
+        }
+
+        .quick-form {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .quick-form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 15px;
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .quick-form input:focus {
+            border-color: var(--airtel-red);
+        }
+
+        .btn-form-submit {
+            background-color: var(--airtel-red);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* Product Offerings Grid */
+        .products-section {
+            max-width: 1200px;
+            margin: 0 auto 60px auto;
+            padding: 0 5%;
+        }
+
+        .section-header {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--airtel-light);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        .badge {
+            background-color: #FFEBE9;
+            color: var(--airtel-red);
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            color: var(--airtel-red);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--airtel-dark);
+            color: #aaaaaa;
+            padding: 40px 5%;
+            margin-top: auto;
+            font-size: 13px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #cccccc;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        .footer-links a:hover {
+            color: var(--airtel-red);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .top-bar {
+                display: none;
+            }
+            .hero-inner {
+                text-align: center;
+                flex-direction: column;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .quick-form {
+                flex-direction: column;
+            }
+            .btn-form-submit {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top segment switcher bar -->
+    <div class="top-bar">
+        <a href="#" class="active">Personal</a>
+        <a href="#">Business</a>
+        <a href="#">Airtel Payments Bank</a>
+        <a href="#">Investor Relations</a>
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo">airtel<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#">Prepaid</a></li>
+                <li><a href="#">Postpaid</a></li>
+                <li><a href="#">Broadband</a></li>
+                <li><a href="#">Wynk Music</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+            <a href="#" class="btn-quick-recharge">Quick Recharge</a>
+        </div>
+    </header>
+
+    <!-- Gradient Hero Banner -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <h1>Experience Blazing Fast Unlimited 5G</h1>
+                <p>Switch to Airtel prepaid or postpaid today and enjoy uninterrupted entertainment, free music streaming, and massive data benefits.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-white">Get New SIM</a>
+                    <a href="#" class="btn-outline">Port to Airtel</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Recharge Portal Form -->
+    <div class="recharge-panel">
+        <div class="panel-title">Quick Instant Recharge</div>
+        <form class="quick-form" onsubmit="event.preventDefault();">
+            <input type="tel" placeholder="Enter Mobile Number" required>
+            <input type="number" placeholder="Enter Amount" required>
+            <button type="submit" class="btn-form-submit">Proceed to Pay</button>
+        </form>
+    </div>
+
+    <!-- Product Grid Section -->
+    <main class="products-section">
+        <h2 class="section-header">Explore Airtel Services</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="badge">BEST VALUE</span>
+                <h3>Unlimited Prepaid</h3>
+                <p>Get daily high-speed data allowances with unlimited local and national voice calls.</p>
+                <a href="#" class="card-link">View Plans &rarr;</a>
+            </div>
+            <div class="card">
+                <span class="badge">ENTERTAINMENT</span>
+                <h3>Airtel Xstream Fiber</h3>
+                <p>Super-secure broadband speeds up to 1Gbps with complementary OTT app subscriptions.</p>
+                <a href="#" class="card-link">Check Availability &rarr;</a>
+            </div>
+            <div class="card">
+                <span class="badge">POSTPAID</span>
+                <h3>Infinity Family Plans</h3>
+                <p>One unified bill for your entire household, data rollover features, and insurance coverage.</p>
+                <a href="#" class="card-link">Explore Postpaid &rarr;</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Airtel Replica Project. Designed cleanly for educational use.</p>
+            <div class="footer-links">
+                <a href="#">Terms of Use</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact Support</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
