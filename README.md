@@ -30,7 +30,6 @@ A hands-on demonstration of hosting two clients (Emeka & Ebuka) on a single Azur
 │ └────────────────┘ │
 └──────────────────────────────────────────────────┘
 
----
 
 ## How It Works
 
