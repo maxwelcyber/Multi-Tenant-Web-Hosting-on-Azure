@@ -48,9 +48,9 @@ A hands-on demonstration of hosting two clients (Emeka & Ebuka) on a single Azur
 | `emeka` runs `cat /var/www/html-mtn/index.html` | **Permission denied** |
 | `ebuka` runs `cat /var/www/html-airtel/index.html` | **Permission denied** |
 
-![Airtel Site](images/airtel-site.png)
-![MTN Site](images/mtn-site.png)
-![Permission Denied](images/permission-denied.png)
+![Airtel Site](Images/airtel-site.png)
+![MTN Site](Images/mtn-site.png)
+![Permission Denied](Images/permission-denied.png)
 
 ## Key Security Features
 
