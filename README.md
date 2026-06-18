@@ -1,6 +1,6 @@
 # Multi-Tenant Web Hosting with Isolated Client Environments
 
-**Built by Maxwell — Lagos, Nigeria**
+**Built by MaxwelCyber — Lagos, Nigeria**
 
 A production-ready demonstration of hosting multiple clients on a single Azure VM with full file-level isolation using Linux permissions and Nginx.
 
