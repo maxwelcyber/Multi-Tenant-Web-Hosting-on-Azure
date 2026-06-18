@@ -52,7 +52,7 @@ A production-ready demonstration of hosting multiple clients on a single Azure V
 ## Quick Deploy
 
 ```bash
-git clone [<this-repo>](https://github.com/maxwelcyber/Multi-Tenant-Web-Hosting-with-Isolated-Client-Environments-on-Azure.git)
+git clone (https://github.com/maxwelcyber/Multi-Tenant-Web-Hosting-with-Isolated-Client-Environments-on-Azure.git)
 cd multi-tenant-azure-project
 chmod +x setup.sh
 sudo ./setup.sh
